@@ -1,0 +1,4 @@
+config/database.js 
+data/
+bower_components/
+node_modules/ 
