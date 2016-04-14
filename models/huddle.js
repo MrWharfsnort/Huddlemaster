@@ -12,8 +12,10 @@ var huddleSchema = mongoose.Schema({
       required: true
    },
    program: {
-      type: String,
-      required: true
+      name: {
+         type: String,
+         required: true
+      }
    },
    details: {
       objective: {

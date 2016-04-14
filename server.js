@@ -11,19 +11,17 @@ Huddle         = require('./models/huddle');
 
 var PORT       = process.env.PORT || 3000;
 
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/public'));
 
 // Connect to mongoose
-mongoose.connect(database.url);
+mongoose.connect(database.dev_url);
 var db = mongoose.connection;
 db.on('error', console.error);
 
 // Routes
-app.get('/', function(req, res) {
-   res.send('/api/huddles || /api/programs');
-});
+
 
 // Get All Programs
 app.get('/api/programs', function(req, res) {
@@ -125,4 +123,4 @@ app.delete('/api/huddles/:_id', function(req, res) {
 
 // Start server
 app.listen(PORT);
-console.log('Running on port ' + PORT + '...');
+console.log('Server running on port ' + PORT + '...');
