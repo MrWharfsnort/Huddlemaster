@@ -1,5 +1,5 @@
 (function() {
    'use strict';
 
-   angular.module('app.huddles', ['app.core']);
+   angular.module('app.huddles', ['app.core', 'ngRoute']);
 })();

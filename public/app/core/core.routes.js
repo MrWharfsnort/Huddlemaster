@@ -1,25 +1,24 @@
 (function() {
    'use strict';
 
-   angular.module('app.core')
-   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-      function($stateProvider, $urlRouterProvider, $locationProvider) {
-         $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-         });
+   routeConfig.$inject = ['$routeProvider', '$locationProvider'];
 
-         $urlRouterProvider.otherwise('404');
+   function routeConfig ($routeProvider, $locationProvider) {
+      $routeProvider
+      .when('/', {
+         templateUrl: '/app/home/home.html'
+      })
+      .otherwise({
+         redirectTo: '/'
+      });
 
-         $stateProvider
-         .state('home', {
-            url: '/',
-            templateUrl: '/app/home/home.html'
-         })
-         .state('404', {
-            url: '/404',
-            templateUrl: '/app/core/404.html'
-         });
+      $locationProvider.html5Mode({
+         enabled: true,
+         requireBase: false
+      });
+   }
 
-   }]);
+   angular
+      .module('app.core')
+      .config(routeConfig);
 })();

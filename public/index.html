@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-
 </head>
 <body>
 
@@ -28,9 +27,8 @@
                         <small><b>HUDDLES</b></small>
                     </h5>
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a ui-sref="viewHuddles">View All</a></li>
-                        <li><a ui-sref="addHuddle">Add Huddle</a></li>
-                        <li><a ui-sref="editHuddle">Edit Huddle</a></li>
+                        <li><a ng-href="/huddles">View All</a></li>
+                        <li><a ng-href="/huddles/add">Add Huddle</a></li>
                     </ul>
                     <h5><i class="glyphicon glyphicon-user"></i>
                         <small><b>USERS</b></small>
@@ -41,31 +39,30 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-10" ui-view>
+            <div class="col-md-10" ng-view>
 
             </div>
         </div>
     </div>
 
     <!-- bower:js -->
-
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <!-- bower:end -->
 
-    <!-- main module -->
+    <!-- core  -->
     <script src="app/app.module.js"></script>
     <script src="app/core/core.module.js"></script>
-    <script src="app/huddles/huddles.module.js"></script>
-
-    <!-- core -->
     <script src="app/core/core.routes.js"></script>
 
     <!-- huddles -->
+    <script src="app/huddles/huddles.module.js"></script>
     <script src="app/huddles/huddles.routes.js"></script>
-
+    <script src="app/huddles/huddles.controller.js"></script>
+    <script src="app/huddles/huddles.factory.js"></script>
 
 </body>
 </html>
