@@ -1,6 +1,8 @@
 (function() {
    'use strict';
 
+   huddleRoutes.$inject = ['$routeProvider'];
+
    function huddleRoutes($routeProvider) {
       $routeProvider
       .when('/huddles', {
@@ -10,7 +12,13 @@
       })
       .when('/huddles/add', {
          templateUrl: '/app/huddles/add_huddle.html',
-         controller: 'HuddleCtrl'
+         controller: 'HuddleCtrl',
+         controllerAs: 'vm'
+      })
+      .when('/huddles/:id', {
+         templateUrl: '/app/huddles/huddle_details.html',
+         controller: 'HuddleCtrl',
+         controllerAs: 'vm'
       });
    }
    angular

@@ -1,24 +1,33 @@
 (function () {
    'use strict';
 
-   huddleFactory.$inject = ['$http'];
+   huddleFactory.$inject = ['$http', '$routeParams'];
 
-   function huddleFactory ($http) {
+   function huddleFactory ($http, $routeParams) {
       console.log('huddleFactory active...');
 
       function getHuddles() {
          return $http.get('/api/huddles')
             .then(function(response) {
-               console.log('huddleFactory => getHuddles() successful...');
+               console.info('huddleFactory => getHuddles() successful...');
                return response.data;
             })
             .catch(function(err) {
-               console.log ('huddleFactory => getHuddles() failed: ' + err);
+               console.error ('huddleFactory => getHuddles() failed: ' + err);
             });
       }
 
       function getHuddle() {
-         console.log('Getting Huddle...');
+         console.log('huddleFactory is getting Huddle...');
+         var id = $routeParams.id;
+         return $http.get('/api/huddles/' + id)
+            .then(function(response) {
+               console.info('huddleFactory => getHuddle() retrieved');
+               return response.data;
+            })
+            .catch(function(err) {
+               console.error ('huddleFactory => getHuddle() failed: ' + err);
+            });
       }
 
       function addHuddle() {

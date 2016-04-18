@@ -1,5 +1,9 @@
-<h1>{{ vm.title }}</h1>
+<div class="huddle-list" ng-init="vm.getHuddles()">
+    <div class="form-group">
+        <input type="text" class="form-control" id="huddleFilter" ng-model="huddleFilter" placeholder="Huddle search...">
+    </div>
 
-<div class="list-group">
-    <a href="#" class="list-group-item" ng-repeat="huddle in vm.huddleList">{{ huddle.name }}</a>
+    <div class="list-group">
+        <a ng-href="/huddles/{{ huddle._id }}" class="list-group-item" ng-repeat="huddle in vm.huddleList | filter : huddleFilter">{{ huddle.name }}</a>
+    </div>
 </div>
