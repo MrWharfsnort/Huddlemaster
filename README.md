@@ -1,24 +1,23 @@
+# Huddlemaster
 Huddlemaster was created as a content manager to manage huddle sessions for team-based learning.
 
 ---
 
-###Roadmap / ToDo
- > Dashboard
+## Roadmap / ToDo
 
-  => per user
+#### Dashboard
+* per user
+* per team
+* overall
 
-  => per team
+#### User Profiles
+* Admins can create huddles
+* leaders can manage teams, schedule sessions
 
-  => overall
- 
- > User Profiles
+#### Team Management
+* As leader, transfer user to/from team 
+* Schedule Sessions (session contains huddle content, users attended, who scheduled, time/loc/date)
 
- > Team Management
-
-  => As admin, transfer user to/from team 
-
-  => Schedule Sessions
-
-  ===> session contains huddle content, users attended, who scheduled, time/loc/date
-
- > Huddle rating/activity
+#### Huddle Profiles
+* Facilitators can comment and rate huddle content
+* Admins can see huddle content and address issues as needed
