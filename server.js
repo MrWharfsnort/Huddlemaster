@@ -15,13 +15,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+
 // Connect to mongoose
 mongoose.connect(database.dev_url);
 var db = mongoose.connection;
 db.on('error', console.error);
 
 // Routes
-
 
 // Get All Programs
 app.get('/api/programs', function(req, res) {
@@ -119,6 +119,10 @@ app.delete('/api/huddles/:_id', function(req, res) {
       }
       res.json(huddle);
    });
+});
+
+app.use('/*', function(req, res) {
+   res.sendfile(__dirname + '/public/index.html');
 });
 
 // Start server
