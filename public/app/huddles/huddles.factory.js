@@ -30,8 +30,14 @@
             });
       }
 
-      function addHuddle() {
-         console.log('Adding Huddle...');
+      function addHuddle(huddle) {
+         return $http.post('/api/huddles', huddle)
+            .then(function(response) {
+               console.info('huddleFactory => addHuddle() => adding huddle...');
+            })
+            .catch(function(err) {
+               console.error('huddleFactory => addHuddle() failed: ' + err);
+            });
       }
 
       function editHuddle() {

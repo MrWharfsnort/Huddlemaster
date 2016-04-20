@@ -4,6 +4,6 @@
     </div>
 
     <div class="list-group">
-        <a ng-href="/huddles/{{ huddle._id }}" class="list-group-item" ng-repeat="huddle in vm.huddleList | filter : huddleFilter">{{ huddle.name }}</a>
+        <a ng-href="/huddles/{{ huddle._id }}" class="list-group-item" ng-repeat="huddle in vm.huddleList | filter : huddleFilter"><strong>{{ huddle.name }}<strong> <span ng-repeat="program in huddle.program" class="badge">{{ program }}</span></a>
     </div>
 </div>

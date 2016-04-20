@@ -1,12 +1,29 @@
+* {
+    border-color: #afbfcf !important;
+}
+
 body {
-    padding-top: 50px;
-    background-color: #d8d8d8;
-    color: #1e1e1e;
+    padding-top: 72px;
+    background-color: #ddd;
+    color: #585858;
+}
+
+p, i {
+    color: #484848;
+}
+
+.badge {
+    margin-left: 8px;
+}
+
+.navbar-inverse {
+    background-color: #484848;
 }
 
 #sidebar {
     padding: 4px;
     border-radius: 0;
+    width: 12%;
 }
 
 #huddleFilter {
@@ -14,6 +31,6 @@ body {
     font-size: 24px;
 }
 
-.form-group, .huddle-details {
+/*.form-group, .huddle-details {
     margin-top: 16px;
-}
+}*/
