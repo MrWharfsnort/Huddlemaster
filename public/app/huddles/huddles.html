@@ -4,6 +4,10 @@
     </div>
 
     <div class="list-group">
-        <a ng-href="/huddles/{{ huddle._id }}" class="list-group-item" ng-repeat="huddle in vm.huddleList | filter : huddleFilter"><strong>{{ huddle.name }}<strong> <span ng-repeat="program in huddle.program" class="badge">{{ program }}</span></a>
+        <a ng-href="/huddles/{{ huddle._id }}" class="list-group-item" ng-repeat="huddle in vm.huddleList | filter : huddleFilter | orderBy : 'huddle.created_at': true ">{{ huddle.name }}
+        <small><span ng-repeat="program in huddle.program" class="badge">{{ program }}</span></small>
+        <span class="label label-success pull-right" ng-show="huddle.is_published">published</span>
+        <span class="label label-warning pull-right" ng-show="!huddle.is_published">not published</span>
+        </a>
     </div>
 </div>

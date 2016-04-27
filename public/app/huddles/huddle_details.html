@@ -1,24 +1,46 @@
-<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-    <div class="panel panel-default huddle-details" ng-init="vm.getHuddle()">
-      <div class="panel-heading">
-        <h2 class="panel-title">{{ vm.huddleList.name }}</h2>
-      </div>
+<div class="huddle-details" ng-init="vm.getHuddle()">
+  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title"><strong>{{ vm.huddleList.name }}</strong>
+          <span class="label label-success pull-right" ng-show="vm.huddleList.is_published">published</span>
+          <span class="label label-warning pull-right" ng-show="!vm.huddleList.is_published">not published</span>
+          </h2>
+
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                <div class="list-group-item">
+                    <p><strong>Author:</strong> {{ vm.huddleList.author }}</p>
+                    <p><strong>Program:</strong> <span ng-repeat="program in vm.huddleList.program" class="label label-default">{{ program }}</span></p>
+                    <p><strong>Objective:</strong> {{ vm.huddleList.details.objective }}</p>
+                </div>
+                <div class="list-group-item">
+                    <p><strong>Details:</strong></p>
+                    <p ng-bind-html="vm.huddleList.details.content"></p>
+                </div>
+                <div class="list-group-item">
+                    <p><strong>Practice:</strong></p>
+                    <p ng-bind-html="vm.huddleList.details.practice"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="panel panel-default">
       <div class="panel-body">
-          <div class="list-group">
-              <div class="list-group-item">
-                  <p><strong>Author:</strong> {{ vm.huddleList.author }}</p>
-                  <p><strong>Program:</strong> <span ng-repeat="program in vm.huddleList.program" class="badge">{{ program }}</span>
-                  <p><strong>Objective:</strong> {{ vm.huddleList.details.objective }}</p>
-              </div>
-              <div class="list-group-item">
-                  <p><strong>Details:</strong></p>
-                  <p ng-bind-html="vm.huddleList.details.content"></p>
-              </div>
-              <div class="list-group-item">
-                  <p><strong>Practice:</strong></p>
-                  <p ng-bind-html="vm.huddleList.details.practice"></p>
-              </div>
-          </div>
+        <a class="btn btn-default pull-left" ng-href="/huddles/edit/{{ vm.huddleList._id }}">edit huddle</button>
+        <a class="btn btn-danger pull-right" ng-click="deleteHuddle(huddle)">delete huddle</button>
+        <br />
+        <p>
+        <!-- TODO: make this a component called 'huddle toolbar' -->
+          <small><strong>Created: </strong> {{ vm.huddleList.createdAt | date : 'short'}}</small>
+          <br />
+          <small><strong>Updated: </strong> {{ vm.huddleList.updatedAt | date : 'short' }}</small>
+        </p>
       </div>
     </div>
+  </div>
+  </div>
 </div>
