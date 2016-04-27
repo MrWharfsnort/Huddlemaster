@@ -9,8 +9,15 @@
       vm.getHuddles = getHuddles;
       vm.getHuddle = getHuddle;
       vm.addHuddle = addHuddle;
-
+      vm.resetForm = resetForm;
+      vm.huddle = {};
       return vm;
+
+      function resetForm() {
+         // TODO: resetForm does not clear out the value, only the form
+         vm.huddle = {};
+         vm.addNewHuddle.$setPristine(true);
+      }
 
       function getHuddles() {
          huddleFactory
@@ -27,9 +34,7 @@
             .getHuddle()
             .then(function(response) {
                vm.huddleList = response;
-               var huddleCount = response.length;
-               console.info('huddleList <= ' + huddleCount + ' huddles');
-               console.info('HuddleCtrl <= getHuddle() <= ' + response.name);
+               console.info('HuddleCtrl <= getHuddle() <= ' + vm.huddleList.name);
             })
             .catch(function(error) {
                console.error('HuddleCtrl <= getHuddle() failed: ' + error);
@@ -37,10 +42,10 @@
       }
 
       function addHuddle(huddle) {
-         console.log(huddle);
          huddleFactory.addHuddle(huddle)
             .then(function(response) {
                console.info('HuddleCtrl => addHuddle => ' + response);
+               window.location.href='/huddles';
             })
             .catch(function(err) {
                console.error('addHuddle error =>' + err);

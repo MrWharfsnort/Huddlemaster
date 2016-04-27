@@ -34,6 +34,7 @@
          return $http.post('/api/huddles', huddle)
             .then(function(response) {
                console.info('huddleFactory => addHuddle() => adding huddle...');
+               // $location.url('/huddles' )
             })
             .catch(function(err) {
                console.error('huddleFactory => addHuddle() failed: ' + err);
