@@ -122,7 +122,7 @@ app.delete('/api/huddles/:_id', function(req, res) {
 });
 
 app.use('/*', function(req, res) {
-   res.sendfile(__dirname + '/public/index.html');
+   res.sendFile(__dirname + '/public/index.html');
 });
 
 // Start server

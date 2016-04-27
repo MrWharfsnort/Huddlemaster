@@ -1,3 +1,4 @@
+// TODO : Switch to UI.Router
 (function() {
    'use strict';
 
