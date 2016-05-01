@@ -39,23 +39,24 @@ var Huddle = module.exports = mongoose.model('Huddle', huddleSchema);
 // Get Huddles
 module.exports.getHuddles = function (callback, limit) {
    Huddle.find(callback).limit(limit);
-}
+};
 
 // Get Huddle by ID
 module.exports.getHuddleById = function (id, callback) {
    Huddle.findById(id, callback);
-}
+};
 
 // Add Huddle
 module.exports.addHuddle = function (huddle, callback) {
    Huddle.create(huddle, callback);
-}
+};
 
 // Update Huddle
 module.exports.updateHuddle = function (id, huddle, options, callback) {
    var query = {_id: id};
    var update = {
       name: huddle.name,
+      author: huddle.author,
       program: huddle.program,
       details: {
          objective: huddle.details.objective,
@@ -65,10 +66,10 @@ module.exports.updateHuddle = function (id, huddle, options, callback) {
       is_published: huddle.is_published
    };
    Huddle.findOneAndUpdate(query, update, options, callback);
-}
+};
 
 // Remove Huddle
 module.exports.removeHuddle = function (id, callback) {
    var query = {_id: id};
    Hudle.remove(query, callback);
-}
+};
