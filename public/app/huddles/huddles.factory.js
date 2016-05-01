@@ -4,21 +4,20 @@
    huddleFactory.$inject = ['$http', '$routeParams'];
 
    function huddleFactory ($http, $routeParams) {
-      console.log('huddleFactory active...');
 
       function getHuddles() {
          return $http.get('/api/huddles')
             .then(function(response) {
-               console.info('huddleFactory => getHuddles() successful...');
+               console.info('getting huddle from api...');
                return response.data;
             })
             .catch(function(err) {
-               console.error ('huddleFactory => getHuddles() failed: ' + err);
+               console.error ('failed to get huddles: ' + err);
             });
       }
 
       function getHuddle() {
-         console.log('huddleFactory is getting Huddle...');
+         console.info('huddleFactory is getting Huddle...');
          var id = $routeParams.id;
          return $http.get('/api/huddles/' + id)
             .then(function(response) {
@@ -33,27 +32,33 @@
       function addHuddle(huddle) {
          return $http.post('/api/huddles', huddle)
             .then(function(response) {
-               console.info('huddleFactory => addHuddle() => adding huddle...');
-               // $location.url('/huddles' )
+               console.info('huddleFactory => addHuddle() => ADDING huddle...');
             })
             .catch(function(err) {
                console.error('huddleFactory => addHuddle() failed: ' + err);
             });
       }
 
-      function editHuddle() {
-         console.log('Editing Huddle...');
+      function updateHuddle(huddle) {
+         var id = $routeParams.id;
+         return $http.put('/api/huddles/' + id, huddle)
+            .then(function(response) {
+               return response;
+            })
+            .catch(function(err) {
+               console.error('huddleFactory.updateHuddle() failed: ' + err);
+            });
       }
 
       function deleteHuddle() {
-         console.log('Deleting Huddle...');
+         console.info('Deleting Huddle...');
       }
 
       return {
          getHuddles: getHuddles,
          getHuddle: getHuddle,
          addHuddle: addHuddle,
-         editHuddle: editHuddle,
+         updateHuddle: updateHuddle,
          deleteHuddle: deleteHuddle
       };
    }

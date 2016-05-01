@@ -9,14 +9,15 @@
       vm.getHuddles = getHuddles;
       vm.getHuddle = getHuddle;
       vm.addHuddle = addHuddle;
+      vm.updateHuddle = updateHuddle;
       vm.resetForm = resetForm;
-      vm.huddle = {};
       return vm;
 
       function resetForm() {
          // TODO: resetForm does not clear out the value, only the form
-         vm.huddle = {};
-         vm.addNewHuddle.$setPristine(true);
+         // vm.huddle = {};
+         vm.huddleList = [];
+         huddleForm.$setPristine(true);
       }
 
       function getHuddles() {
@@ -45,12 +46,22 @@
          huddleFactory.addHuddle(huddle)
             .then(function(response) {
                console.info('HuddleCtrl => addHuddle => ' + response);
-               window.location.href='/huddles';
             })
             .catch(function(err) {
                console.error('addHuddle error =>' + err);
             });
       }
+
+      function updateHuddle(huddle) {
+         huddleFactory.updateHuddle(huddle)
+            .then(function(response) {
+               window.location.href='/huddles/' + huddle._id;
+            })
+            .catch(function(err) {
+               console.error('addHuddle error =>' + err);
+            });
+      }
+
    }
 
    angular

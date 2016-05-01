@@ -20,6 +20,11 @@
          templateUrl: '/app/huddles/huddle_details.html',
          controller: 'HuddleCtrl',
          controllerAs: 'vm'
+      })
+      .when('/huddles/edit/:id', {
+         templateUrl: '/app/huddles/edit_huddle.html',
+         controller: 'HuddleCtrl',
+         controllerAs: 'vm'
       });
    }
    angular

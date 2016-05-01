@@ -1,12 +1,13 @@
 <div class="col-sm-8 col-md-8 col-lg-8">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>Add Huddle</h4>
+            <h4>Edit Huddle</h4>
         </div>
         <div class="panel-body">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <form name="addNewHuddle"
-                    ng-submit="vm.editHuddle(huddle)"
+                <form name="huddleForm"
+                    ng-submit="vm.updateHuddle(vm.huddleList)"
+                    ng-init="vm.getHuddle()"
                     class="form-horizontal"
                     novalidate>
 
@@ -16,7 +17,7 @@
                             <input type="text"
                                 class="form-control"
                                 name="author"
-                                ng-model="huddle.author"
+                                ng-model="vm.huddleList.author"
                                 placeholder="Your name...">
                         </div>
                     </div>
@@ -27,7 +28,7 @@
                             <input type="text"
                                 class="form-control"
                                 name="name"
-                                ng-model="huddle.name"
+                                ng-model="vm.huddleList.name"
                                 placeholder="Huddle title...">
                         </div>
                     </div>
@@ -38,7 +39,7 @@
                             <input type="text"
                                 class="form-control"
                                 name="details-objective"
-                                ng-model="huddle.details.objective"
+                                ng-model="vm.huddleList.details.objective"
                                 placeholder="Huddle objective...">
                         </div>
                     </div>
@@ -48,7 +49,7 @@
                         <div class="col-sm-6">
                             <select class="form-control"
                                 name="program"
-                                ng-model="huddle.program"
+                                ng-model="vm.huddleList.program"
                                 multiple>
                                 <option value="Techmaster">Techmaster</option>
                                 <option value="Savesmaster">Savesmaster</option>
@@ -63,7 +64,7 @@
                         <div class="col-sm-10">
                             <textarea class="form-control"
                                 name="details-content"
-                                ng-model="huddle.details.content"
+                                ng-model="vm.huddleList.details.content"
                                 rows="6"></textarea>
                         </div>
                     </div>
@@ -73,7 +74,7 @@
                         <div class="col-sm-10">
                             <textarea class="form-control"
                                 name="details-practice"
-                                ng-model="huddle.details.practice"
+                                ng-model="vm.huddleList.details.practice"
                                 rows="6"></textarea>
                         </div>
                     </div>
@@ -84,8 +85,8 @@
                             <div class="checkbox">
                                 <label>
                                     <input name="is_published"
-                                        ng-model="huddle.is_published"
-                                        ng-init="huddle.is_published = false"
+                                        ng-model="vm.huddleList.is_published"
+                                        ng-init="vm.huddleList.is_published = false"
                                         type="checkbox">
                                     By checking this box, I acknowledge that the content above is accurate and is ready to be used as content for a huddle session.
                                 </label>
@@ -110,7 +111,7 @@
             <div class="list-group">
                 <div class="list-group-item">
                     <strong>JSON:</strong><br />
-                    <pre>{{ huddle | json }}</pre>
+                    <pre>{{ vm.huddleList | json }}</pre>
                 </div>
             </div>
         </div>
