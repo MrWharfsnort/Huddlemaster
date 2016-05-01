@@ -21,10 +21,10 @@ p, i {
 }
 
 #sidebar {
-    padding: 4px;
+    padding: 4px 16px;
     border-radius: 0;
-    /*width: 12%;*/
-    position: fixed;
+    min-width: 15%;
+    /*position: fixed;*/
 }
 
 #huddleFilter {
