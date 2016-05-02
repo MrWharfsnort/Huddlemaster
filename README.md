@@ -1,5 +1,5 @@
 # Huddlemaster
-Huddlemaster was created as a content manager to manage huddle sessions for team-based learning.
+In general, Huddlemaster was created as a content manager to manage huddle sessions for team-based learning.  However, it's main purpose is to learn the MEAN stack by building an app that utilizes CRUD operations, authentication, role-based access, and real-time reporting.
 
 ---
 
